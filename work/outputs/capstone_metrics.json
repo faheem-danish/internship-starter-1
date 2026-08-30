@@ -1,0 +1,16 @@
+{
+  "paper_title": "Prioritizing Content Refresh Review from Search Performance Signals",
+  "decision_window": "2026-03-01 to 2026-03-31",
+  "total_content_items": 331437,
+  "refresh_candidates": 21143,
+  "eligibility_rate": 0.0638,
+  "unique_clients": 55,
+  "train_clients": 44,
+  "test_clients": 11,
+  "client_overlap": 0,
+  "test_base_rate": 0.0875,
+  "method": "transparent_week4_baseline_rule",
+  "leakage_audit_result": "score_collapses_without_label_derived_features",
+  "claim_language": "observed_directional_decision_support",
+  "data_credit": "Built on the FlyRank ML Internship dataset \u2014 https://flyrank.ai"
+}
