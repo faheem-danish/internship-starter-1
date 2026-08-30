@@ -2,11 +2,15 @@
 
 ## Abstract
 
-We analyzed 331,437 content items across 55 clients using March 2026 Google Search Console and GA4 data to build a transparent refresh-review prioritization system. We compared a rule-based baseline against Logistic Regression and Random Forest models using a client-grouped 80/20 split, so the test evaluates generalization to unseen clients rather than memorized patterns. The Random Forest achieved perfect precision when trained on features that overlap with the label definition, but collapsed to the base rate once those leaky features were removed — confirming the apparent model strength was label leakage, not learned signal. The honest finding is that the learned models reproduce the transparent baseline rather than discover independent refresh drivers, so we deployed the baseline itself as a ranked action playbook. The playbook includes archetype mapping, human-review rules, and an explicit no-go list for what should never be automated.
+FlyRank's content operations teams manage thousands of pages across dozens of client portfolios with limited editorial hours. This study evaluates whether search-performance signals can build a transparent, auditable prioritization system for content refresh review — the exact operational problem these teams face daily. We analyzed 331,437 content items across 55 clients using March 2026 Google Search Console and GA4 data, comparing a rule-based baseline against Logistic Regression and Random Forest models using a client-grouped 80/20 split. The Random Forest achieved perfect precision when trained on features that overlap with the label definition, but collapsed to the base rate once those leaky features were removed — confirming the apparent model strength was label leakage, not learned signal. The honest finding is that the learned models reproduce the transparent baseline rather than discover independent refresh drivers, so we deployed the baseline itself as a ranked action playbook. The playbook includes archetype mapping, human-review rules, and an explicit no-go list for what should never be automated.
 
 ## 1. Introduction
 
-Content teams managing large multi-client portfolios need a way to decide which pages are worth a human's time to review for a refresh. This project asks: **can search performance signals reliably flag pages that deserve refresh review, and does a machine learning model add real predictive value over a simple, transparent rule?**
+FlyRank's content operations teams face a recurring prioritization problem: with thousands of pages across dozens of client portfolios and limited editorial hours, which content deserves human review for refresh first? Refreshing the wrong pages wastes effort. Missing the right ones lets existing search visibility decay.
+
+This project treats that operational problem as a case study. It asks: **can search performance signals reliably flag pages that deserve refresh review, and does a machine learning model add real predictive value over a simple, transparent rule?** The operational need is not a black-box prediction of "will this page rank #1?" — it is a ranked shortlist a strategist can trust and audit.
+
+We built and tested a prioritization system on the FlyRank ML Internship warehouse, audited our own model for leakage, and deployed the surviving baseline as a decision-support playbook.
 
 | Property | Value |
 |---|---|
